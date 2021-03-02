@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Text Translation{% endblock %}
+
+{% block content %}
+<form action="#" method="post">
+	<!-- <p>Please type in:</p> -->
+	<div class="center">
+		<p><b>Please type in:</b></p>
+		<p>
+			<input type="text" name="nm" value="{{origin}}" />
+		</p>
+		<!-- <p><textarea name="nm" onkeyup="textAreaAdjust(this)">{{origin}}</textarea></p> -->
+	</div>
+
+  <br>
+	<div class="center">
+		<p><b>Translated using Transformer:</b></p>
+		<p><textarea readonly="True">{{transformer}}</textarea></p>
+	</div>
+
+	<br>
+	<div class="center">
+		<p><b>Translated using Google API:</b></p>
+		<p><textarea readonly="True">{{google}}</textarea></p>
+	</div>
+	<!-- <p>Translated:</p>
+	<p><textarea readonly="True">{{content}}</textarea></p> -->
+</form>
+{% endblock %}

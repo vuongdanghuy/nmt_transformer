@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Speech Translation{% endblock %}
+
+{% block content %}
+<form method="POST" action="" enctype="multipart/form-data">
+	<!-- <div class="input-group"> -->
+		<!-- <div class="custom-file"> -->
+		<div class="custom-file mb-3">
+			<input type="file" class="custom-file-input" id="customFile" name="filename">
+			<label class="custom-file-label" for="customFile">Choose file</label>
+		</div>
+		<!-- </div> -->
+		<!-- <div class="input-group-append">
+			<button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Upload</button>
+		</div> -->
+	<!-- </div> -->
+		<div class="mt-3">
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+
+    <br>
+		<div class="center">
+			<p><b>Translated using Transformer:</b></p>
+			<p><textarea readonly="True">{{transformer}}</textarea></p>
+		</div>
+
+		<br>
+		<div class="center">
+			<p><b>Translated using Google API:</b></p>
+			<p><textarea readonly="True">{{google}}</textarea></p>
+		</div>
+</form>
+
+<script>
+	$(".custom-file-input").on("change", function() {
+		var fileName = $(this).val().split("\\").pop();
+		$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+	});
+</script>
+{% endblock %}
